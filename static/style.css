@@ -1,0 +1,238 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins', sans-serif;
+}
+
+body{
+    min-height:100vh;
+    overflow-x:hidden;
+    color:white;
+
+    /* moving rainbow background */
+    background: linear-gradient(-45deg,
+        #ff00cc,
+        #3333ff,
+        #00ffcc,
+        #ffcc00,
+        #ff0055
+    );
+    background-size:400% 400%;
+
+    animation: gradientMove 8s ease infinite;
+}
+
+/* 🌊 animated background flow */
+@keyframes gradientMove{
+    0%{background-position:0% 50%;}
+    50%{background-position:100% 50%;}
+    100%{background-position:0% 50%;}
+}
+
+/* floating glowing blobs */
+body::before,
+body::after{
+    content:"";
+    position:fixed;
+    width:350px;
+    height:350px;
+    border-radius:50%;
+    filter:blur(120px);
+    opacity:0.6;
+    z-index:0;
+    animation: float 6s ease-in-out infinite;
+}
+
+body::before{
+    background:#ff00cc;
+    top:10%;
+    left:10%;
+}
+
+body::after{
+    background:#00ffcc;
+    bottom:10%;
+    right:10%;
+    animation-delay:2s;
+}
+
+@keyframes float{
+    0%,100%{transform:translateY(0) scale(1);}
+    50%{transform:translateY(40px) scale(1.2);}
+}
+
+/* ================= NAV ================= */
+nav{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    padding:18px 50px;
+
+    background:rgba(0,0,0,0.25);
+    backdrop-filter:blur(15px);
+    z-index:1000;
+}
+
+.logo{
+    font-size:22px;
+    font-weight:600;
+    color:#ffffff;
+    text-shadow:0 0 20px #fff;
+}
+
+.links a{
+    color:white;
+    text-decoration:none;
+    margin-left:18px;
+    font-size:14px;
+    transition:0.3s;
+    opacity:0.9;
+}
+
+.links a:hover{
+    color:#000;
+    background:white;
+    padding:6px 10px;
+    border-radius:8px;
+}
+
+/* ================= HERO ================= */
+.hero{
+    height:100vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    position:relative;
+    z-index:1;
+}
+
+.hero h1{
+    font-size:70px;
+    font-weight:700;
+
+    background:linear-gradient(90deg,#fff,#000,#fff);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+
+    animation: textWave 3s ease-in-out infinite;
+}
+
+@keyframes textWave{
+    0%,100%{transform:translateY(0);}
+    50%{transform:translateY(-10px);}
+}
+
+.hero p{
+    max-width:650px;
+    margin-top:15px;
+    color:#fff;
+    opacity:0.9;
+    line-height:1.6;
+}
+
+/* ================= BUTTON ================= */
+.btn{
+    margin-top:25px;
+    padding:15px 40px;
+
+    border:none;
+    border-radius:50px;
+
+    background:linear-gradient(90deg,#ff00cc,#00ffcc,#3333ff);
+    background-size:200%;
+
+    color:white;
+    font-weight:600;
+
+    cursor:pointer;
+    transition:0.4s;
+
+    box-shadow:0 0 25px rgba(255,255,255,0.3);
+}
+
+.btn:hover{
+    transform:scale(1.1);
+    background-position:right;
+    box-shadow:0 0 40px rgba(255,255,255,0.6);
+}
+
+/* ================= LOGIN FORM ================= */
+.form-container{
+    width:380px;
+    margin:auto;
+    margin-top:120px;
+    padding:40px;
+
+    background:rgba(0,0,0,0.3);
+    backdrop-filter:blur(20px);
+
+    border:1px solid rgba(255,255,255,0.2);
+    border-radius:20px;
+
+    animation: pop 0.8s ease;
+}
+
+@keyframes pop{
+    from{transform:scale(0.6);opacity:0;}
+    to{transform:scale(1);opacity:1;}
+}
+
+h2{
+    margin-bottom:20px;
+    text-align:center;
+    font-size:24px;
+}
+
+input{
+    width:100%;
+    padding:14px;
+    margin:10px 0;
+
+    border:none;
+    border-radius:12px;
+
+    background:rgba(255,255,255,0.15);
+    color:white;
+
+    outline:none;
+    transition:0.3s;
+}
+
+input:focus{
+    transform:scale(1.03);
+    box-shadow:0 0 15px white;
+}
+
+/* button */
+button{
+    width:100%;
+    padding:14px;
+
+    border:none;
+    border-radius:50px;
+
+    background:linear-gradient(90deg,#ff00cc,#3333ff,#00ffcc);
+    background-size:200%;
+
+    color:white;
+    font-weight:600;
+
+    cursor:pointer;
+    transition:0.3s;
+}
+
+button:hover{
+    transform:scale(1.05);
+    background-position:right;
+}

@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container">
+
+    <h1>Dustbin Locations</h1>
+
+    <br>
+
+    {% for b in bins %}
+
+    <div class="card">
+
+        <h2>{{ b.location_name }}</h2>
+
+        <br>
+
+        <p><b>District:</b> {{ b.district }}</p>
+
+        <p><b>Sector:</b> {{ b.sector }}</p>
+
+        <p><b>Cell:</b> {{ b.cell }}</p>
+
+        <p><b>Status:</b> {{ b.status }}</p>
+
+    </div>
+
+    <br>
+
+    {% endfor %}
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <title>Dashboard</title>
+
+    <link rel="stylesheet"
+    href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+
+<nav>
+
+    <div class="logo">
+        Dashboard
+    </div>
+
+    <div>
+        <a href="/logout">Logout</a>
+    </div>
+
+</nav>
+
+<div class="dashboard">
+
+<div class="form-container">
+
+    <h2>♻ Add Dustbin</h2>
+
+    <form method="POST">
+
+        <input
+        type="text"
+        name="district"
+        placeholder="District"
+        required>
+
+        <input
+        type="text"
+        name="sector"
+        placeholder="Sector"
+        required>
+
+        <input
+        type="text"
+        name="cell"
+        placeholder="Cell"
+        required>
+
+        <input
+        type="text"
+        name="serial"
+        placeholder="Serial Number"
+        required>
+
+        <select name="status">
+
+            <option>Not Full</option>
+            <option>Full</option>
+
+        </select>
+
+        <button class="btn">
+            Save Dustbin
+        </button>
+
+    </form>
+
+</div>
+
+{% for b in bins %}
+
+<div class="card {% if b[5]=='Full' %}full{% else %}ok{% endif %}">
+
+    <h3>
+        📍 {{ b[1] }} / {{ b[2] }} / {{ b[3] }}
+    </h3>
+
+    <p>
+        🆔 {{ b[4] }}
+    </p>
+
+    <p>
+        📊 {{ b[5] }}
+    </p>
+
+    <p>
+        {{ b[6] }}
+    </p>
+
+    <small>
+        ⏰ {{ b[7] }}
+    </small>
+
+</div>
+
+{% endfor %}
+
+</div>
+
+</body>
+</html>
